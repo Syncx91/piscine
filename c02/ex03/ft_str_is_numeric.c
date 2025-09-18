@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/15 11:39:38 by nplassar          #+#    #+#             */
-/*   Updated: 2025/09/15 11:48:59 by nplassar         ###   ########.fr       */
+/*   Created: 2025/09/17 14:23:21 by nplassar          #+#    #+#             */
+/*   Updated: 2025/09/17 14:27:52 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_ultimate_div_mod(int *a, int *b)
+int	ft_str_is_numeric(char *str)
 {
-	int	divab;
-	int	modba;
+	int	x;
 
-	divab = *a / *b;
-	modba = *b % *a;
-	divab = *a;
-	modba = *b;
+	x = 0;
+	while (str[x] != '\0')
+	{
+		if (str[x] < '0' || str[x] > '9')
+		{
+			return (0);
+		}
+		x++;
+	}
+	return (1);
 }

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/15 11:50:25 by nplassar          #+#    #+#             */
-/*   Updated: 2025/09/15 11:54:09 by nplassar         ###   ########.fr       */
+/*   Created: 2025/09/17 14:40:55 by nplassar          #+#    #+#             */
+/*   Updated: 2025/09/17 16:27:17 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>>
-
-void	ft_putstr(char *str)
+char	*ft_strupcase(char *str)
 {
 	int	x;
 
 	x = 0;
-	while (str[x] != 0)
+	while (str[x] != '\0')
 	{
-		write(1, &str[x], 1);
+		if (str[x] >= 'a' && str[x] <= 'z')
+			str[x] = str[x] - 32;
 		x++;
 	}
+	return (str);
 }
