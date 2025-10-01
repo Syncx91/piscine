@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:45:49 by nplassar          #+#    #+#             */
-/*   Updated: 2025/09/25 14:42:17 by nplassar         ###   ########.fr       */
+/*   Created: 2025/09/17 16:08:38 by nplassar          #+#    #+#             */
+/*   Updated: 2025/09/25 14:44:52 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strlowcase(char *str)
 {
-	unsigned int	x;
+	int	x;
 
 	x = 0;
-	while (src[x] != '\0' && x < n)
+	while (str[x] != '\0')
 	{
-		dest[x] = src[x];
+		if (str[x] >= 'A' && str[x] <= 'Z')
+			str[x] = str[x] + 32;
 		x++;
 	}
-	while (x < n)
-	{
-		dest[x] = '\0';
-		x++;
-	}
-	return (dest);
+	return (str);
 }

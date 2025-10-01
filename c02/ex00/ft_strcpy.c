@@ -6,7 +6,7 @@
 /*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 15:25:48 by nplassar          #+#    #+#             */
-/*   Updated: 2025/09/17 11:41:30 by nplassar         ###   ########.fr       */
+/*   Updated: 2025/09/25 14:41:56 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ char	*ft_strcpy(char *dest, char *src)
 		dest[x] = src[x];
 		x++;
 	}
+	dest[x] = '\0';
 	return (dest);
 }

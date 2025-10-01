@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:45:49 by nplassar          #+#    #+#             */
-/*   Updated: 2025/09/25 14:42:17 by nplassar         ###   ########.fr       */
+/*   Created: 2025/09/24 12:52:17 by nplassar          #+#    #+#             */
+/*   Updated: 2025/09/24 12:56:49 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	x;
+	unsigned int	d;
+	unsigned int	s;
+	unsigned int	i;
 
-	x = 0;
-	while (src[x] != '\0' && x < n)
+	d = 0;
+	s = 0;
+	i = 0;
+	while (dest[d])
+		d++;
+	while (src[s])
+		s++;
+	if (size <= d)
+		return (s + size);
+	while (src[i] && (d + i) < (size - 1))
 	{
-		dest[x] = src[x];
-		x++;
+		dest[d + i] = src[i];
+		i++;
 	}
-	while (x < n)
-	{
-		dest[x] = '\0';
-		x++;
-	}
-	return (dest);
+	dest[d + i] = '\0';
+	return (s + d);
 }

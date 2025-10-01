@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:45:49 by nplassar          #+#    #+#             */
-/*   Updated: 2025/09/25 14:42:17 by nplassar         ###   ########.fr       */
+/*   Created: 2025/09/23 12:14:34 by nplassar          #+#    #+#             */
+/*   Updated: 2025/09/30 15:25:46 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_atoi(char *str)
 {
-	unsigned int	x;
+	int	x;
+	int	sign;
+	int	result;
 
 	x = 0;
-	while (src[x] != '\0' && x < n)
+	sign = 1;
+	result = 0;
+	while (str[x] == ' ' || (str[x] >= 9 && str[x] <= 13))
+		x++;
+	while (str[x] == '-' || str[x] == '+')
 	{
-		dest[x] = src[x];
+		if (str[x] == '-')
+			sign = -sign;
 		x++;
 	}
-	while (x < n)
+	while (str[x] >= '0' && str[x] <= '9')
 	{
-		dest[x] = '\0';
+		result = result * 10 + (str[x] - '0');
 		x++;
 	}
-	return (dest);
+	return (result * sign);
 }

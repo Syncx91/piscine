@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:45:49 by nplassar          #+#    #+#             */
-/*   Updated: 2025/09/25 14:42:17 by nplassar         ###   ########.fr       */
+/*   Created: 2025/09/22 12:50:43 by nplassar          #+#    #+#             */
+/*   Updated: 2025/09/25 15:46:33 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strcat(char *dest, char *src)
 {
-	unsigned int	x;
+	int	x;
+	int	i;
 
 	x = 0;
-	while (src[x] != '\0' && x < n)
+	i = 0;
+	while (dest[x] != '\0')
 	{
-		dest[x] = src[x];
 		x++;
 	}
-	while (x < n)
+	while (src[i] != '\0')
 	{
-		dest[x] = '\0';
+		dest[x] = src[i];
 		x++;
+		i++;
 	}
+	dest[x] = '\0';
 	return (dest);
 }

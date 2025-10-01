@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 11:45:49 by nplassar          #+#    #+#             */
-/*   Updated: 2025/09/25 14:42:17 by nplassar         ###   ########.fr       */
+/*   Created: 2025/09/22 14:23:41 by nplassar          #+#    #+#             */
+/*   Updated: 2025/09/30 12:22:25 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+void	ft_putnbr(int nb)
 {
-	unsigned int	x;
+	char	c;
 
-	x = 0;
-	while (src[x] != '\0' && x < n)
+	if (nb == -2147483648)
 	{
-		dest[x] = src[x];
-		x++;
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	while (x < n)
+	if (nb < 0)
 	{
-		dest[x] = '\0';
-		x++;
+		write(1, "-", 1);
+		nb = -nb;
 	}
-	return (dest);
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		c = (nb % 10) + '0';
+		write(1, &c, 1);
+	}
+	else
+	{
+		c = nb + '0';
+		write(1, &c, 1);
+	}
 }

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/17 16:08:38 by nplassar          #+#    #+#             */
-/*   Updated: 2025/09/17 16:27:40 by nplassar         ###   ########.fr       */
+/*   Created: 2025/09/22 14:23:35 by nplassar          #+#    #+#             */
+/*   Updated: 2025/09/30 14:30:39 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+#include <unistd.h>
+
+void	ft_putstr(char *str)
 {
 	int	x;
 
 	x = 0;
-	while (str[x] != '\0')
+	while (str[x] != 0)
 	{
-		if (str[x] < 'A' && str[x] > 'Z')
-			str[x] = str[x] + 32;
+		write(1, &str[x], 1);
 		x++;
 	}
-	return (str);
 }
