@@ -6,38 +6,32 @@
 /*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:12:24 by nplassar          #+#    #+#             */
-/*   Updated: 2025/09/25 14:56:43 by nplassar         ###   ########.fr       */
+/*   Updated: 2025/10/01 17:53:02 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(char c)
-{
-	if (!(c >= 'a' && c <= 'z') && !(c >= 'A' && c <= 'Z') && !(c >= '0'
-			&& c <= '9'))
-		return (1);
-	return (0);
-}
-
-//#include <stdio.h>
-
-char	*ft_strcapitalize(char *str)
+char	ft_strcapitalize(char *str)
 {
 	int	i;
-	int	space;
 
-	space = 1;
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		if (ft_isspace(str[i]))
-			space = 1;
-		else
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		i++;
+	}
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
 		{
-			if (space == 1 && str[i] >= 'a' && str[i] <= 'z')
-				str[i] = str[i] - 32;
-			else if (space == 0 && str[i] >= 'A' && str[i] <= 'Z')
-				str[i] = str[i] + 32;
-			space = 0;
+			if (!(str[i - 1] >= 'A' && str[i - 1] <= 'Z') && !(str[i - 1] >= 'a'
+					&& str[i - 1] <= 'z') && !(str[i - 1] >= '1' && str[i
+					- 1] <= '9'))
+			{
+				str[i] -= 32;
+			}
 		}
 		i++;
 	}
@@ -45,12 +39,16 @@ char	*ft_strcapitalize(char *str)
 }
 
 /*
+#include <stdio.h>
+
+char	ft_strcapitalize(charstr);
+
 int	main(void)
 {
-	char	test[] = "hi, how are you? 42words forty-two; fifty+and+one";
-
-I
-	printf("%s\n", ft_strcapitalize(test));
+	char	str1[] = "salut,
+			comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	printf("Original: %s\n", str1);
+	printf("Result  : %s\n", ft_strcapitalize(str1));
 	return (0);
 }
 */
