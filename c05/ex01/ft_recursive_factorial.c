@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wessaddo <wessaddo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nplassar <nplassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/24 19:12:55 by wessaddo          #+#    #+#             */
-/*   Updated: 2025/09/24 19:40:36 by wessaddo         ###   ########.fr       */
+/*   Created: 2025/10/02 12:19:17 by nplassar          #+#    #+#             */
+/*   Updated: 2025/10/02 12:19:17 by nplassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
